@@ -1,6 +1,6 @@
 from collections import Counter
 
-f = open("input.txt")
+f = open("day1.txt")
 
 list1, list2 = [], []
 
