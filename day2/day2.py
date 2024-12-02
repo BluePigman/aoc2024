@@ -2,10 +2,10 @@ f = open("day2.txt")
 
 reports = [list(map(int, line.split())) for line in f]
 
-def isSafe(r:list[int]):
+def isSafe(r: list[int]):
     if r[0] > r[1]:
         r.reverse()
-    for i in range(1,len(r)):
+    for i in range(1, len(r)):
         if r[i] <= r[i - 1] or r[i] > r[i - 1] + 3:
             return False
     return True
@@ -17,7 +17,7 @@ def part1():
             safeReports += 1
     print(safeReports)
 
-def canDampen(r:list[int]):
+def canDampen(r: list[int]):
     for i in range(len(r)):
         x = list(r)
         x.pop(i)
@@ -28,9 +28,7 @@ def canDampen(r:list[int]):
 def part2():
     safeReports = 0
     for report in reports:
-        if isSafe(report):
-            safeReports += 1
-        elif canDampen(report):
+        if isSafe(report) or canDampen(report):
             safeReports += 1
     print(safeReports)
 
